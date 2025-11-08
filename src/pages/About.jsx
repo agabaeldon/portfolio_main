@@ -1,17 +1,60 @@
 import React from "react";
 import About from "../components/about/About.jsx";
+import { FiAward, FiBriefcase, FiBook, FiCode, FiTrendingUp } from "react-icons/fi";
 
 const AboutPage = () => {
+  const experience = [
+    {
+      year: "2020 - Present",
+      role: "Full Stack Software Engineer",
+      company: "Freelance & Contract",
+      description: "Building scalable web and mobile applications for clients across various industries. Specializing in React, Node.js, and cloud infrastructure.",
+      achievements: ["Delivered 30+ production applications", "Led technical architecture for 5+ major projects", "Mentored junior developers"]
+    },
+    {
+      year: "2019 - 2020",
+      role: "Junior Developer",
+      company: "Tech Startups",
+      description: "Developed frontend and backend features, collaborated with cross-functional teams, and contributed to product development.",
+      achievements: ["Improved application performance by 40%", "Implemented CI/CD pipelines", "Reduced bug reports by 30%"]
+    }
+  ];
+
+  const education = [
+    {
+      degree: "Bachelor's in Computer Science",
+      institution: "University",
+      year: "2015 - 2019",
+      description: "Focused on software engineering, algorithms, and database systems."
+    },
+    {
+      degree: "Certifications",
+      institution: "Various Platforms",
+      year: "Ongoing",
+      description: "AWS Certified, React Advanced Patterns, Node.js Best Practices, Docker & Kubernetes"
+    }
+  ];
+
+  const achievements = [
+    { icon: <FiAward />, title: "30+ Projects", description: "Successfully delivered production applications" },
+    { icon: <FiTrendingUp />, title: "5+ Years", description: "Professional development experience" },
+    { icon: <FiCode />, title: "Full Stack", description: "Expertise across entire tech stack" },
+    { icon: <FiBriefcase />, title: "Client Success", description: "100% client satisfaction rate" }
+  ];
+
   return (
     <div className="dark:text-white">
       {/* Visual banner */}
       <section className="relative h-64 md:h-80 w-full overflow-hidden">
-        <img src="https://img.freepik.com/premium-photo/lines-code-characters-representing-software-development-emphasizing-glowing-effect-bi_1091925-29418.jpg?semt=ais_hybrid&w=740&q=80" alt="About banner" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/40" />
+        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="About banner" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
         <div className="absolute inset-0 flex items-center">
           <div className="container">
-            <h1 className="text-3xl md:text-5xl font-bold text-white animate-fade-up">About Me</h1>
-            <p className="text-white/80 mt-2 max-w-xl animate-fade-up [animation-delay:120ms]">Software Engineer crafting reliable, scalable products with clean UX and robust engineering practices.</p>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-3">About Me</h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl">
+              Software Engineer crafting reliable, scalable products with clean UX and robust engineering practices. 
+              Passionate about turning complex problems into elegant solutions.
+            </p>
           </div>
         </div>
       </section>
@@ -19,39 +62,111 @@ const AboutPage = () => {
       <About />
 
       {/* Profile and highlights */}
-      <section className="container md:w-[80%] py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="md:col-span-1">
-          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Profile" className="w-full h-72 object-cover rounded-xl shadow border border-gray-100 dark:border-gray-800" />
-        </div>
-        <div className="md:col-span-2 space-y-6 text-slate-600 dark:text-slate-300">
-          <div>
-            <h2 className="text-2xl font-bold mb-2">What I do</h2>
-            <p>Full‑stack delivery across frontend, backend, and DevOps. I turn concepts into shipped, maintainable software.</p>
+      <section className="container md:w-[80%] py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="md:col-span-1">
+            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Profile" className="w-full h-80 object-cover rounded-xl shadow-lg border border-gray-100 dark:border-gray-800" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
-              <p className="text-sm text-slate-500">Experience</p>
-              <p className="text-2xl font-bold">5+ yrs</p>
+          <div className="md:col-span-2 space-y-6 text-slate-600 dark:text-slate-300">
+            <div>
+              <h2 className="text-3xl font-bold mb-3">Professional Summary</h2>
+              <p className="text-lg leading-relaxed mb-4">
+                I'm a full-stack software engineer with over 5 years of experience building scalable web and mobile applications. 
+                My expertise spans from frontend development with React and TypeScript to backend architecture with Node.js and cloud infrastructure.
+              </p>
+              <p className="text-lg leading-relaxed">
+                I specialize in creating user-centric applications that are not only visually appealing but also performant, 
+                secure, and maintainable. My approach combines modern development practices with a focus on code quality, 
+                testing, and continuous improvement.
+              </p>
             </div>
-            <div className="p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
-              <p className="text-sm text-slate-500">Projects</p>
-              <p className="text-2xl font-bold">30+ shipped</p>
+            
+            {/* Achievement Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {achievements.map((achievement, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow hover:shadow-lg transition">
+                  <div className="text-2xl text-primary mb-2">{achievement.icon}</div>
+                  <h3 className="font-bold text-lg mb-1">{achievement.title}</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{achievement.description}</p>
+                </div>
+              ))}
             </div>
-            <div className="p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
-              <p className="text-sm text-slate-500">Focus</p>
-              <p className="text-2xl font-bold">Quality & DX</p>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Core strengths</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <li className="p-3 rounded bg-secondary dark:bg-gray-900">Frontend: React, TypeScript, Tailwind, a11y</li>
-              <li className="p-3 rounded bg-secondary dark:bg-gray-900">Backend: Node, REST/GraphQL, DBs, auth</li>
-              <li className="p-3 rounded bg-secondary dark:bg-gray-900">DevOps: CI/CD, Docker, cloud, monitoring</li>
-              <li className="p-3 rounded bg-secondary dark:bg-gray-900">Quality: tests, reviews, perf budgets</li>
-            </ul>
           </div>
         </div>
+
+        {/* Experience Timeline */}
+        <section className="mb-12">
+          <div className="flex items-center gap-3 mb-8">
+            <FiBriefcase className="text-3xl text-primary" />
+            <h2 className="text-3xl font-bold">Professional Experience</h2>
+          </div>
+          <div className="space-y-6">
+            {experience.map((exp, idx) => (
+              <div key={idx} className="relative pl-8 border-l-2 border-primary/30 dark:border-primary/20">
+                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary"></div>
+                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow hover:shadow-lg transition">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-bold">{exp.role}</h3>
+                      <p className="text-primary font-medium">{exp.company}</p>
+                    </div>
+                    <span className="text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-0">{exp.year}</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-300 mb-4">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, aIdx) => (
+                      <li key={aIdx} className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                        <span className="text-primary mt-1">•</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="mb-12">
+          <div className="flex items-center gap-3 mb-8">
+            <FiBook className="text-3xl text-primary" />
+            <h2 className="text-3xl font-bold">Education & Certifications</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {education.map((edu, idx) => (
+              <div key={idx} className="p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
+                <p className="text-primary font-medium mb-2">{edu.institution}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{edu.year}</p>
+                <p className="text-slate-600 dark:text-slate-300">{edu.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Core Strengths */}
+        <section>
+          <h2 className="text-3xl font-bold mb-6">Core Strengths</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-5 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
+              <h3 className="font-bold text-lg mb-2 text-primary">Frontend Development</h3>
+              <p className="text-slate-600 dark:text-slate-300">React, TypeScript, Tailwind CSS, Next.js, Vue.js, Accessibility (WCAG), Responsive Design</p>
+            </div>
+            <div className="p-5 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
+              <h3 className="font-bold text-lg mb-2 text-primary">Backend Development</h3>
+              <p className="text-slate-600 dark:text-slate-300">Node.js, Express, REST/GraphQL APIs, Database Design, Authentication & Authorization, Microservices</p>
+            </div>
+            <div className="p-5 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
+              <h3 className="font-bold text-lg mb-2 text-primary">DevOps & Infrastructure</h3>
+              <p className="text-slate-600 dark:text-slate-300">CI/CD Pipelines, Docker, Kubernetes, AWS, Azure, Cloud Architecture, Monitoring & Logging</p>
+            </div>
+            <div className="p-5 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow">
+              <h3 className="font-bold text-lg mb-2 text-primary">Quality & Best Practices</h3>
+              <p className="text-slate-600 dark:text-slate-300">Testing (Unit, Integration, E2E), Code Reviews, Performance Optimization, Security Best Practices, Agile/Scrum</p>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );

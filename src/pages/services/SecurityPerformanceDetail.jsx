@@ -1,21 +1,10 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { services } from "../data/services";
+import { Link } from "react-router-dom";
+import { securityPerformanceData } from "../../data/services/securityPerformance";
 import { FiCheck } from "react-icons/fi";
 
-const ServiceDetail = () => {
-  const { slug } = useParams();
-  const service = services.find(s => s.slug === slug);
-
-  if (!service) {
-    return (
-      <section className="container py-12 dark:text-white">
-        <h1 className="text-2xl font-bold mb-4">Service not found</h1>
-        <Link to="/services" className="outline-btn">Back to services</Link>
-      </section>
-    );
-  }
-
+const SecurityPerformanceDetail = () => {
+  const service = securityPerformanceData;
   const Icon = service.icon;
 
   return (
@@ -37,7 +26,7 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Main Content - Customize this section's styling as needed */}
       <section className="container py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Description */}
@@ -110,6 +99,5 @@ const ServiceDetail = () => {
   );
 };
 
-export default ServiceDetail;
-
+export default SecurityPerformanceDetail;
 
