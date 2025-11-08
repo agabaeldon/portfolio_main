@@ -6,7 +6,7 @@ const AboutPage = () => {
     <div className="dark:text-white">
       {/* Visual banner */}
       <section className="relative h-64 md:h-80 w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop" alt="About banner" className="w-full h-full object-cover" />
+        <img src="https://img.freepik.com/premium-photo/lines-code-characters-representing-software-development-emphasizing-glowing-effect-bi_1091925-29418.jpg?semt=ais_hybrid&w=740&q=80" alt="About banner" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center">
           <div className="container">
