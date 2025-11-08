@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Simple fade-up animation */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up .6s ease both; }
+
+@layer components {
+  .primary-btn {
+    @apply bg-primary text-white cursor-pointer hover:bg-primary/80 px-4 py-2 rounded-lg my-3;
+  }
+  .outline-btn {
+    @apply ring-2 ring-primary inset-0 text-primary cursor-pointer hover:bg-primary hover:text-white px-4 py-2 rounded-lg my-3;
+  }
+}
