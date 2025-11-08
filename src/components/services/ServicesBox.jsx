@@ -10,7 +10,13 @@ const ServicesBox = () => {
           const Icon = service.icon;
           return (
             <article key={service.slug} className="group rounded-xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow hover:shadow-lg transition">
-              <div className="relative h-40 bg-center bg-cover" style={{ backgroundImage: `url(${service.image})` }}>
+              {/* Mobile: Round border, Desktop: Rectangular but smaller */}
+              <div className="flex justify-center items-center py-6 bg-transparent md:hidden">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20">
+                  <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div className="hidden md:block relative h-32 bg-center bg-cover" style={{ backgroundImage: `url(${service.image})` }}>
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition"></div>
               </div>
               <div className="p-5 space-y-3">

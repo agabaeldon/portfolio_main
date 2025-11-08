@@ -54,16 +54,16 @@ const Navbar = () => {
         {/* Top contact bar */}
         <div className="bg-secondary dark:bg-gray-900 dark:text-white">
           <div className="container px-2 sm:px-4">
-            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-1 sm:gap-2 py-2 text-xs sm:text-sm">
-              <a href="mailto:agabaeldon@gmail.com" className="hover:underline truncate max-w-[140px] sm:max-w-none">
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 sm:gap-3 py-1.5 text-xs sm:text-sm">
+              <a href="mailto:agabaeldon@gmail.com" className="hover:underline truncate max-w-[140px] sm:max-w-none font-bold">
                 agabaeldon@gmail.com
               </a>
               <span className="opacity-40 hidden sm:inline">|</span>
-              <a href="tel:+256765026870" title="Call 0765026870" className="hover:underline whitespace-nowrap">
+              <a href="tel:+256765026870" title="Call 0765026870" className="hover:underline whitespace-nowrap font-bold">
                 0765026870
               </a>
               <span className="opacity-40 hidden sm:inline">|</span>
-              <a href="tel:+256751501556" title="Call 0751501556" className="hover:underline whitespace-nowrap">
+              <a href="tel:+256751501556" title="Call 0751501556" className="hover:underline whitespace-nowrap font-bold">
                 0751501556
               </a>
             </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
         <nav id="home" className="bg-secondary dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
           <div className="container flex justify-between items-center py-3 sm:py-0 px-2 sm:px-4">
-            <h1 className="text-lg sm:text-2xl md:text-4xl font-bold text-primary flex justify-center items-center">
+            <h1 className="text-base sm:text-xl md:text-4xl font-bold text-primary flex justify-center items-center">
               <Link to="/">DELON TECHNOLOGIES</Link>
             </h1>
             <div className="hidden sm:block">
