@@ -74,6 +74,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 );
+                
               })}
               {/* Light and dark mode switcher */}
               {theme === "dark" ? (
