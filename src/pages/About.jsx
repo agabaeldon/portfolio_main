@@ -1,6 +1,7 @@
 import React from "react";
 import About from "../components/about/About.jsx";
 import { FiAward, FiBriefcase, FiBook, FiCode, FiTrendingUp } from "react-icons/fi";
+import person2Img from "../assets/person2.jpeg";
 
 const AboutPage = () => {
   const experience = [
@@ -46,7 +47,7 @@ const AboutPage = () => {
     <div className="dark:text-white">
       {/* Visual banner */}
       <section className="relative h-64 md:h-80 w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="About banner" className="w-full h-full object-cover" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvzUg3wwrFtMTqp3rN9sN5t_iu9IKpBHBIag&s" alt="About banner" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
         <div className="absolute inset-0 flex items-center">
           <div className="container">
@@ -65,7 +66,7 @@ const AboutPage = () => {
       <section className="container md:w-[80%] py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="md:col-span-1">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Profile" className="w-full h-80 object-cover rounded-xl shadow-lg border border-gray-100 dark:border-gray-800" />
+            <img src={person2Img} alt="Profile" className="w-full h-80 object-cover rounded-xl shadow-lg border border-gray-100 dark:border-gray-800" />
           </div>
           <div className="md:col-span-2 space-y-6 text-slate-600 dark:text-slate-300">
             <div>

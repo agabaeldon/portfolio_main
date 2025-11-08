@@ -3,6 +3,11 @@ import Hero from "../components/hero/Hero.jsx";
 import Services from "../components/services/Services.jsx";
 import Skills from "../components/skills/Skills.jsx";
 import About from "../components/about/About.jsx";
+import StatsCounter from "../components/stats/StatsCounter.jsx";
+import SubscribeForm from "../components/subscribe/SubscribeForm.jsx";
+import Testimonials from "../components/testimonials/Testimonials.jsx";
+import Certifications from "../components/certifications/Certifications.jsx";
+import BlogPreview from "../components/blog/BlogPreview.jsx";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -21,6 +26,11 @@ const HomePage = () => {
       <About />
       <Skills />
       <Services />
+      <Testimonials />
+      <Certifications />
+      <BlogPreview />
+      <StatsCounter />
+      <SubscribeForm />
     </div>
   );
 };

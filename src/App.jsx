@@ -8,6 +8,9 @@ import ServicesPage from "./pages/Services.jsx";
 import SkillsPage from "./pages/Skills.jsx";
 import ProjectsPage from "./pages/Projects.jsx";
 import ContactPage from "./pages/Contact.jsx";
+import TestimonialsPage from "./pages/Testimonials.jsx";
+import CertificationsPage from "./pages/Certifications.jsx";
+import BlogPage from "./pages/Blog.jsx";
 // Individual service detail pages
 import WebApplicationsDetail from "./pages/services/WebApplicationsDetail.jsx";
 import MobileAppsDetail from "./pages/services/MobileAppsDetail.jsx";
@@ -45,6 +48,9 @@ const App = () => {
         <Route path="/projects/ecommerce-platform" element={<EcommercePlatformDetail />} />
         <Route path="/projects/analytics-dashboard" element={<AnalyticsDashboardDetail />} />
         <Route path="/projects/mobile-super-app" element={<MobileSuperAppDetail />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/certifications" element={<CertificationsPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />

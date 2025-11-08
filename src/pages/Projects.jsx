@@ -11,7 +11,7 @@ const ProjectsPage = () => {
           <article key={p.title} className="bg-white dark:bg-gray-900 rounded-xl shadow border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-lg transition">
             {/* Mobile: Round border, Desktop: Rectangular but smaller */}
             <div className="flex justify-center items-center py-6 bg-transparent md:hidden">
-              <img src={p.image} alt={p.title} className="w-32 h-32 rounded-full object-cover border-4 border-primary/20" />
+              <img src={p.image} alt={p.title} className="w-40 h-40 rounded-full object-cover border-4 border-primary/20" />
             </div>
             <img src={p.image} alt={p.title} className="hidden md:block w-full h-36 object-cover" />
             <div className="p-4 space-y-2">

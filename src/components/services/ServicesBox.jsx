@@ -12,7 +12,7 @@ const ServicesBox = () => {
             <article key={service.slug} className="group rounded-xl overflow-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow hover:shadow-lg transition">
               {/* Mobile: Round border, Desktop: Rectangular but smaller */}
               <div className="flex justify-center items-center py-6 bg-transparent md:hidden">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20">
+                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20">
                   <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
                 </div>
               </div>
