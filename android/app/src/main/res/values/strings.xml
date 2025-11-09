@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ELDON</string>
+    <string name="title_activity_main">ELDON</string>
+    <string name="package_name">com.eldon.portfolio</string>
+    <string name="custom_url_scheme">com.eldon.portfolio</string>
+</resources>

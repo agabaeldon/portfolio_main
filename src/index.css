@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Status bar safe area for mobile apps */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
 /* Simple fade-up animation */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(12px); }
