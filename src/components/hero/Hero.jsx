@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+          <p className="text-xs md:text-sm text-gray-500 dark:text-gray-300 leading-snug max-w-sm">
             Transforming ideas into powerful digital solutions. I specialize in building 
             <span className="font-semibold text-primary"> scalable web applications</span>, 
             <span className="font-semibold text-primary"> mobile apps</span>, and 
