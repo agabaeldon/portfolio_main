@@ -28,7 +28,7 @@ import MobileSuperAppDetail from "./pages/projects/MobileSuperAppDetail.jsx";
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
