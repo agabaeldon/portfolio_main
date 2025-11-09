@@ -45,35 +45,35 @@ const Hero = () => {
 
           {/* --- moved image here so on small screens it appears right after the paragraph;
                  on large screens it is placed in the right column via grid placement --- */}
-          <div className="relative z-10 mt-6 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:flex lg:justify-end -mt-0 lg:-mt-16">
-            <div className="relative">
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-
-              <div className="relative p-2 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl shadow-2xl">
-                <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
-                  <img
-                    src={personImg}
-                    className="w-full h-auto object-cover rounded-xl"
-                    alt="AGABA ELDON - Software Engineer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-4 -left-4 md:-left-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 border border-gray-200 dark:border-gray-700">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-primary/10 dark:bg-primary/20 rounded-lg">
-                    <FaServer className="text-primary text-xl" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white">Full Stack</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Developer</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="relative z-10 mt-6 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:flex lg:justify-end lg:hidden -mt-0 lg:-mt-16"> {/* show on small, hide on lg */}
+             <div className="relative">
+               <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+ 
+               <div className="relative p-2 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl shadow-2xl">
+                 <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+                   <img
+                     src={personImg}
+                     className="w-full h-auto object-cover rounded-xl"
+                     alt="AGABA ELDON - Software Engineer"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+                 </div>
+               </div>
+ 
+               <div className="absolute -bottom-4 -left-4 md:-left-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 border border-gray-200 dark:border-gray-700">
+                 <div className="flex items-center gap-3">
+                   <div className="p-2 bg-primary/10 dark:bg-primary/20 rounded-lg">
+                     <FaServer className="text-primary text-xl" />
+                   </div>
+                   <div>
+                     <p className="text-sm font-semibold text-gray-900 dark:text-white">Full Stack</p>
+                     <p className="text-xs text-gray-600 dark:text-gray-400">Developer</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
 
           {/* Stats/Highlights */}
           <div className="flex flex-wrap gap-6 py-4">
@@ -169,39 +169,39 @@ const Hero = () => {
         </div>
 
         {/* Right Image Section */}
-        <div className="relative z-10 lg:flex lg:justify-end -mt-8 lg:-mt-16">
-          <div className="relative">
-            {/* Decorative Elements */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
-            
-            {/* Image Container with Gradient Border */}
-            <div className="relative p-2 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl shadow-2xl">
-              <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
-                <img
-                  src={personImg}
-                  className="w-full h-auto object-cover rounded-xl"
-                  alt="AGABA ELDON - Software Engineer"
-                />
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
-              </div>
-            </div>
-
-            {/* Floating Badge */}
-            <div className="absolute -bottom-4 -left-4 md:-left-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 dark:bg-primary/20 rounded-lg">
-                  <FaServer className="text-primary text-xl" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">Full Stack</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="hidden lg:flex relative z-10 lg:justify-end -mt-8 lg:-mt-16"> {/* hide on small, show on lg */}
+           <div className="relative">
+             {/* Decorative Elements */}
+             <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
+             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+             
+             {/* Image Container with Gradient Border */}
+             <div className="relative p-2 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl shadow-2xl">
+               <div className="relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+                 <img
+                   src={personImg}
+                   className="w-full h-auto object-cover rounded-xl"
+                   alt="AGABA ELDON - Software Engineer"
+                 />
+                 {/* Overlay Gradient */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+               </div>
+             </div>
+ 
+             {/* Floating Badge */}
+             <div className="absolute -bottom-4 -left-4 md:-left-8 bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4 border border-gray-200 dark:border-gray-700">
+               <div className="flex items-center gap-3">
+                 <div className="p-2 bg-primary/10 dark:bg-primary/20 rounded-lg">
+                   <FaServer className="text-primary text-xl" />
+                 </div>
+                 <div>
+                   <p className="text-sm font-semibold text-gray-900 dark:text-white">Full Stack</p>
+                   <p className="text-xs text-gray-600 dark:text-gray-400">Developer</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
       </div>
 
       {/* Scroll Indicator */}
