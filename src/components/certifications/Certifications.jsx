@@ -6,9 +6,9 @@ const Certifications = () => {
   // Education Section
   const education = {
     icon: <FaGraduationCap className="text-5xl" />,
-    title: "Bachelor of Science in Software Engineering",
+    title: "Bachelor of Software Engineering",
     issuer: "Mbarara University of Science and Technology",
-    year: "2020 - 2024",
+    year: "2022 - 2026",
     description: "Comprehensive education in software development, algorithms, data structures, system design, and software architecture. Graduated with practical skills in full-stack development and modern programming paradigms.",
     color: "text-blue-600",
     image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop",
