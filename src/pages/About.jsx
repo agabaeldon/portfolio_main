@@ -23,9 +23,9 @@ const AboutPage = () => {
 
   const education = [
     {
-      degree: "Bachelor's in Computer Science",
+      degree: "Bachelor's in Software Engineering",
       institution: "University",
-      year: "2015 - 2019",
+      year: "2022 - 2026",
       description: "Focused on software engineering, algorithms, and database systems."
     },
     {
