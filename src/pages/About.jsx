@@ -6,14 +6,14 @@ import person2Img from "../assets/person2.jpeg";
 const AboutPage = () => {
   const experience = [
     {
-      year: "2020 - Present",
+      year: "2023 - Present",
       role: "Full Stack Software Engineer",
       company: "Freelance & Contract",
       description: "Building scalable web and mobile applications for clients across various industries. Specializing in React, Node.js, and cloud infrastructure.",
       achievements: ["Delivered 30+ production applications", "Led technical architecture for 5+ major projects", "Mentored junior developers"]
     },
     {
-      year: "2019 - 2020",
+      year: "2021 - 2023",
       role: "Junior Developer",
       company: "Tech Startups",
       description: "Developed frontend and backend features, collaborated with cross-functional teams, and contributed to product development.",
