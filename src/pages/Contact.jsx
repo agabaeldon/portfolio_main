@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -9,7 +9,80 @@ import {
 } from "react-icons/fa";
 import { HiMailOpen } from "react-icons/hi";
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!FORMSPREE_ENDPOINT) {
+      setStatus({
+        type: "error",
+        message: "Formspree is not connected yet. Add your Formspree endpoint to VITE_FORMSPREE_ENDPOINT.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New portfolio contact from ${formData.name}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      setStatus({
+        type: "success",
+        message: "Your message has been sent successfully.",
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Message failed to send. Please try again or email me directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="container grid grid-cols-1 gap-8 py-12 dark:text-white md:grid-cols-2">
       <div>
@@ -23,41 +96,82 @@ const ContactPage = () => {
       </div>
 
       <div className="space-y-6">
-        <form className="space-y-4 rounded-xl border border-gray-100 bg-white p-6 shadow dark:border-gray-800 dark:bg-gray-900">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 rounded-xl border border-gray-100 bg-white p-6 shadow dark:border-gray-800 dark:bg-gray-900"
+        >
           <div>
-            <label className="mb-1 block text-sm">Name</label>
+            <label htmlFor="name" className="mb-1 block text-sm">
+              Name
+            </label>
             <input
+              id="name"
+              name="name"
               type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
               className="w-full rounded border border-gray-300 bg-transparent px-3 py-2 dark:border-gray-700"
               placeholder="Your name"
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm">Phone Number</label>
+            <label htmlFor="phone" className="mb-1 block text-sm">
+              Phone Number
+            </label>
             <input
+              id="phone"
+              name="phone"
               type="tel"
+              value={formData.phone}
+              onChange={handleChange}
               className="w-full rounded border border-gray-300 bg-transparent px-3 py-2 dark:border-gray-700"
               placeholder="Your phone number"
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm">Email</label>
+            <label htmlFor="email" className="mb-1 block text-sm">
+              Email
+            </label>
             <input
+              id="email"
+              name="email"
               type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
               className="w-full rounded border border-gray-300 bg-transparent px-3 py-2 dark:border-gray-700"
               placeholder="your@email.com"
             />
           </div>
           <div>
-            <label className="mb-1 block text-sm">Message</label>
+            <label htmlFor="message" className="mb-1 block text-sm">
+              Message
+            </label>
             <textarea
+              id="message"
+              name="message"
               rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              required
               className="w-full rounded border border-gray-300 bg-transparent px-3 py-2 dark:border-gray-700"
               placeholder="Tell me about your project"
             />
           </div>
-          <button type="button" className="primary-btn">
-            Send Message
+
+          {status.message ? (
+            <p
+              className={`text-sm ${
+                status.type === "success" ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"
+              }`}
+            >
+              {status.message}
+            </p>
+          ) : null}
+
+          <button type="submit" className="primary-btn" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
 

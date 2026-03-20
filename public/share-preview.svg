@@ -2,30 +2,39 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8FAFC"/>
-      <stop offset="0.5" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#E0F2FE"/>
+      <stop offset="0.55" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF6FF"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#0EA5E9"/>
-      <stop offset="1" stop-color="#2563EB"/>
+    <linearGradient id="accent" x1="140" y1="120" x2="1080" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0.06"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" rx="40" fill="url(#bg)"/>
-  <circle cx="1020" cy="120" r="160" fill="#0EA5E9" fill-opacity="0.08"/>
-  <circle cx="180" cy="540" r="180" fill="#2563EB" fill-opacity="0.08"/>
-  <rect x="72" y="72" width="1056" height="486" rx="28" fill="white" fill-opacity="0.72" stroke="#E2E8F0"/>
-  <rect x="120" y="136" width="170" height="170" rx="28" fill="url(#accent)"/>
-  <text x="145" y="205" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="white">AE</text>
-  <text x="145" y="248" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="white" opacity="0.9">Portfolio</text>
-  <text x="340" y="210" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800" fill="#0F172A">AGABA ELDON</text>
-  <text x="340" y="270" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#2563EB">Software Engineer • Full Stack Developer</text>
-  <text x="120" y="390" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500" fill="#334155">
-    Building scalable web applications, mobile apps,
+
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="1080" cy="90" r="150" fill="#0EA5E9" fill-opacity="0.08"/>
+  <circle cx="110" cy="570" r="150" fill="#2563EB" fill-opacity="0.08"/>
+
+  <rect x="68" y="68" width="1064" height="494" rx="30" fill="white" fill-opacity="0.88" stroke="#E2E8F0"/>
+  <rect x="108" y="108" width="984" height="414" rx="28" fill="url(#accent)"/>
+
+  <image href="/icon-192.png" x="120" y="160" width="360" height="220" preserveAspectRatio="xMinYMid meet"/>
+
+  <text x="500" y="235" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800" fill="#0F172A">
+    DELON TECHNOLOGIES
   </text>
-  <text x="120" y="435" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500" fill="#334155">
-    and robust backend systems with modern tools.
+  <text x="500" y="292" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#2563EB">
+    AGABA ELDON | Software Engineer
   </text>
-  <rect x="120" y="480" width="290" height="44" rx="22" fill="#0EA5E9" fill-opacity="0.12"/>
-  <text x="148" y="509" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#0369A1">agabaeldon@gmail.com</text>
-  <text x="930" y="520" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#475569">portfolio</text>
+  <text x="500" y="350" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500" fill="#334155">
+    Full stack web development, mobile apps,
+  </text>
+  <text x="500" y="388" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500" fill="#334155">
+    backend systems, and modern digital solutions.
+  </text>
+
+  <rect x="500" y="430" width="286" height="46" rx="23" fill="#0EA5E9" fill-opacity="0.12"/>
+  <text x="528" y="460" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#0369A1">
+    agabaeldon@gmail.com
+  </text>
 </svg>
