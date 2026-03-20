@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCertificate, FaAward, FaGraduationCap, FaCode, FaBriefcase, FaTrophy, FaCheckCircle } from "react-icons/fa";
-import { SiReact, SiNodedotjs, SiJavascript, SiPython, SiMongodb, SiPostgresql, SiMysql, SiTailwindcss } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiJavascript, SiPython, SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiFlutter } from "react-icons/si";
 
 const Certifications = () => {
   // Education Section
@@ -115,6 +115,7 @@ const Certifications = () => {
     { name: "React.js", icon: <SiReact />, level: "Expert" },
     { name: "Node.js", icon: <SiNodedotjs />, level: "Expert" },
     { name: "JavaScript", icon: <SiJavascript />, level: "Expert" },
+    { name: "Flutter", icon: <SiFlutter />, level: "Intermediate" },
     { name: "MongoDB", icon: <SiMongodb />, level: "Expert" },
     { name: "PostgreSQL", icon: <SiPostgresql />, level: "Advanced" },
     { name: "MySQL", icon: <SiMysql />, level: "Advanced" },
@@ -241,7 +242,7 @@ const Certifications = () => {
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center dark:text-white">
             Core Technical Skills
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-9 gap-4">
             {skills.map((skill, index) => (
               <div
                 key={index}

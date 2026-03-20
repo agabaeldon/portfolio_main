@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="40" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="160" fill="#0EA5E9" fill-opacity="0.08"/>
+  <circle cx="180" cy="540" r="180" fill="#2563EB" fill-opacity="0.08"/>
+  <rect x="72" y="72" width="1056" height="486" rx="28" fill="white" fill-opacity="0.72" stroke="#E2E8F0"/>
+  <rect x="120" y="136" width="170" height="170" rx="28" fill="url(#accent)"/>
+  <text x="145" y="205" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" fill="white">AE</text>
+  <text x="145" y="248" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" fill="white" opacity="0.9">Portfolio</text>
+  <text x="340" y="210" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800" fill="#0F172A">AGABA ELDON</text>
+  <text x="340" y="270" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#2563EB">Software Engineer • Full Stack Developer</text>
+  <text x="120" y="390" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500" fill="#334155">
+    Building scalable web applications, mobile apps,
+  </text>
+  <text x="120" y="435" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500" fill="#334155">
+    and robust backend systems with modern tools.
+  </text>
+  <rect x="120" y="480" width="290" height="44" rx="22" fill="#0EA5E9" fill-opacity="0.12"/>
+  <text x="148" y="509" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#0369A1">agabaeldon@gmail.com</text>
+  <text x="930" y="520" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#475569">portfolio</text>
+</svg>

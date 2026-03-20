@@ -15,15 +15,16 @@ const Skills = () => {
             </h1>
           </div>
           <div className="text-slate-500">
-            <SkillsLevel skillsName="HTML, CSS" percentage="90%" />
-            <SkillsLevel skillsName="TypeScript / React" percentage="85%" />
-            <SkillsLevel skillsName="Node.js / APIs" percentage="80%" />
-            <SkillsLevel skillsName="CI/CD & Docker" percentage="75%" />
-            <SkillsLevel skillsName="Tailwind / UI" percentage="85%" />
+            <SkillsLevel skillsName="HTML, CSS" percentage="99%" />
+            <SkillsLevel skillsName="TypeScript / React" percentage="95%" />
+            <SkillsLevel skillsName="Node.js / APIs" percentage="97%" />
+            <SkillsLevel skillsName="CI/CD & Docker" percentage="90%" />
+            <SkillsLevel skillsName="Tailwind / UI" percentage="99%" />
+            <SkillsLevel skillsName="Flutter" percentage="96%" />
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-10">
-          {["React","TypeScript","Node","GraphQL","Tailwind","Docker"].map(t => (
+          {["React", "TypeScript", "Node", "GraphQL", "Tailwind", "Flutter", "Docker"].map(t => (
             <span key={t} className="text-sm px-3 py-2 rounded bg-secondary dark:bg-gray-900 text-center border border-gray-100 dark:border-gray-800">{t}</span>
           ))}
         </div>

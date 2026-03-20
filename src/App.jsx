@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/Home.jsx";
 import AboutPage from "./pages/About.jsx";
 import ServicesPage from "./pages/Services.jsx";
@@ -26,9 +26,20 @@ import EcommercePlatformDetail from "./pages/projects/EcommercePlatformDetail.js
 import AnalyticsDashboardDetail from "./pages/projects/AnalyticsDashboardDetail.jsx";
 import MobileSuperAppDetail from "./pages/projects/MobileSuperAppDetail.jsx";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+};
+
 const App = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-white pb-24 transition-colors duration-300 dark:bg-gray-900 md:pb-0">
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

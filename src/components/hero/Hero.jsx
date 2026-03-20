@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { 
-  FaGithub, FaLinkedin, FaTwitter, FaWhatsapp, 
+  FaGithub, FaFacebookF, FaWhatsapp, 
   FaEnvelope, FaDownload, FaArrowRight, FaCode,
   FaMobileAlt, FaServer, FaCloud
 } from "react-icons/fa";
 import personImg from "../../assets/person.png";
+import resumePdf from "../../assets/AGABA_ELDON_CV.pdf";
 
 const Hero = () => {
   return (
@@ -20,14 +21,14 @@ const Hero = () => {
         {/* Left Content Section */}
         <div className="space-y-6 lg:space-y-8 z-10 animate-fade-up pt-8 lg:pt-0">
           {/* Main Heading */}
-          <div className="space-y-1">
+          <div className="space-y-1 text-center lg:text-left">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
               <span className="block text-gray-900 dark:text-white">Hello, I'm</span>
               <span className="block text-primary dark:text-primary/90 font-extrabold">
                 AGABA ELDON
               </span>
             </h1>
-            <div className="flex flex-wrap items-center gap-3 text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 pt-1">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 pt-1 lg:justify-start">
               <span>Software Engineer</span>
               <span className="text-primary">•</span>
               <span>Full Stack Developer</span>
@@ -100,7 +101,7 @@ const Hero = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="../../assets/Fake Resume.pdf"
+              href={resumePdf}
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-lg font-semibold hover:border-primary hover:text-primary dark:hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg"
             >
@@ -114,16 +115,16 @@ const Hero = () => {
             <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Follow me:</span>
             <div className="flex items-center gap-3">
               <a
-                href="https://linkedin.com"
+                href="https://www.facebook.com/agabaeldonofficial"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all duration-300 shadow-md hover:shadow-lg"
-                aria-label="LinkedIn"
+                aria-label="Facebook"
               >
-                <FaLinkedin className="text-lg" />
+                <FaFacebookF className="text-lg" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/agabaeldon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 bg-white dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-primary transition-all duration-300 shadow-md hover:shadow-lg"

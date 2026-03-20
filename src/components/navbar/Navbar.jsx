@@ -28,8 +28,15 @@ const navMenus = [
   { name: "Contact", link: "/contact", icon: HiMail },
 ];
 
+const mobileBottomTabs = [
+  { name: "Home", link: "/", icon: HiHome },
+  { name: "Services", link: "/services", icon: HiBriefcase },
+  { name: "Contact Me", link: "/contact", icon: HiMail },
+];
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -56,6 +63,7 @@ const Navbar = () => {
   useEffect(() => {
     if (showMenu) {
       document.body.style.overflow = "hidden";
+      setIsHeaderVisible(true);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -65,20 +73,47 @@ const Navbar = () => {
     };
   }, [showMenu]);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+
+      if (currentScrollY <= 24) {
+        setIsHeaderVisible(true);
+      } else if (scrollDelta > 8) {
+        setIsHeaderVisible(false);
+      } else if (scrollDelta < -8) {
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <div
-        className="fixed top-0 z-50 w-full backdrop-blur-xl"
+        className={`fixed top-0 z-50 w-full backdrop-blur-xl transition-transform duration-300 ease-out ${
+          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
         style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
       >
         <div className="border-b border-black/8 bg-white dark:border-white/10 dark:bg-gray-950">
           <div className="px-3 sm:px-4 lg:px-5">
-            <div className="flex min-h-[96px] items-center justify-between gap-4 sm:min-h-[108px] lg:min-h-[124px]">
-              <Link to="/" className="flex shrink-0 items-center py-4 sm:py-5">
+            <div className="flex min-h-[92px] items-center justify-between gap-4 sm:min-h-[116px] lg:min-h-[120px]">
+              <Link to="/" className="flex shrink-0 items-center py-5 sm:py-5">
                 <img
                   src={delonLogo}
                   alt="DELON TECHNOLOGIES"
-                  className="h-[4.5rem] w-auto rounded-xl bg-white object-contain sm:h-24 md:h-28 lg:h-32 dark:bg-gray-950"
+                  className="h-[4.8rem] w-auto max-w-none rounded-xl bg-white object-contain sm:h-28 md:h-[7.5rem] lg:h-32 dark:bg-gray-950"
                 />
               </Link>
 
@@ -104,24 +139,6 @@ const Navbar = () => {
               </div>
 
               <div className="hidden shrink-0 items-center gap-3 md:flex">
-                <div className="hidden items-center gap-3 border-r border-black/8 pr-3 text-sm text-gray-600 dark:border-white/10 dark:text-gray-300 xl:flex">
-                  <a
-                    href="mailto:agabaeldon@gmail.com"
-                    className="flex items-center gap-2 transition-colors hover:text-primary"
-                  >
-                    <FaEnvelope className="text-[13px]" />
-                    <span>agabaeldon@gmail.com</span>
-                  </a>
-                  <span className="h-4 w-px bg-black/8 dark:bg-white/10" />
-                  <a
-                    href="tel:+256765026870"
-                    className="flex items-center gap-2 transition-colors hover:text-primary"
-                  >
-                    <FaPhone className="text-[13px]" />
-                    <span>0765026870</span>
-                  </a>
-                </div>
-
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/80 text-gray-700 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:bg-white/[0.08]"
@@ -186,7 +203,7 @@ const Navbar = () => {
             <img
               src={delonLogo}
               alt="DELON TECHNOLOGIES"
-              className="h-14 w-auto rounded-lg bg-white object-contain dark:bg-gray-900"
+              className="h-16 w-auto max-w-none rounded-lg bg-white object-contain dark:bg-gray-900"
             />
             <button
               className="flex h-10 w-10 items-center justify-center rounded-full border border-black/8 transition-colors hover:bg-gray-100 dark:border-white/10 dark:hover:bg-gray-800"
@@ -257,7 +274,31 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="h-[96px] sm:h-[108px] lg:h-[124px]" />
+      <div className="fixed inset-x-0 bottom-0 z-50 md:hidden">
+        <div className="grid grid-cols-3 border-t border-black/8 bg-white px-2 pb-[calc(env(safe-area-inset-bottom,0px)+0.35rem)] pt-2 shadow-[0_-10px_30px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-gray-950">
+          {mobileBottomTabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <NavLink
+                key={tab.name}
+                to={tab.link}
+                className={({ isActive }) =>
+                  `flex flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-[11px] font-medium transition-all duration-200 ${
+                    isActive
+                      ? "bg-primary/10 text-primary dark:bg-primary/20"
+                      : "text-gray-600 hover:bg-black/[0.03] hover:text-primary dark:text-gray-300 dark:hover:bg-white/[0.05]"
+                  }`
+                }
+              >
+                <Icon className="text-[18px]" />
+                <span>{tab.name}</span>
+              </NavLink>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="h-[92px] pb-24 sm:h-[116px] sm:pb-0 lg:h-[120px]" />
     </>
   );
 };

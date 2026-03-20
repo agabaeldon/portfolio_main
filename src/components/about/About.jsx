@@ -1,4 +1,5 @@
 import React from "react";
+import resumePdf from "../../assets/AGABA_ELDON_CV.pdf";
 
 const About = () => {
   return (
@@ -25,7 +26,7 @@ const About = () => {
             </p>
             <div className="">
               <a
-                href="../../assets/Fake Resume.pdf"
+                href={resumePdf}
                 className="primary-btn my-6 mr-6 inline-block"
                 download
               >
