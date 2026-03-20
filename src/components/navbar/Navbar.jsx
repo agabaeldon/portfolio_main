@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
-import { 
-  HiHome, HiUser, HiBriefcase, HiCode, HiFolderOpen,
-  HiChatAlt2, HiAcademicCap, HiDocumentText, HiMail
+import {
+  HiHome,
+  HiUser,
+  HiBriefcase,
+  HiCode,
+  HiFolderOpen,
+  HiChatAlt2,
+  HiAcademicCap,
+  HiDocumentText,
+  HiMail,
 } from "react-icons/hi";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
-import delonLogo from "../../assets/DELON.png";
+import delonLogo from "../../assets/delon_logo.png";
 
 const navMenus = [
   { name: "Home", link: "/", icon: HiHome },
@@ -44,15 +51,15 @@ const Navbar = () => {
       element.classList.remove("dark");
       localStorage.removeItem("theme");
     }
-  }, [theme]);
+  }, [theme, element]);
 
-  // Prevent body scroll when sidebar is open
   useEffect(() => {
     if (showMenu) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
+
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -60,158 +67,129 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 w-full z-50 shadow-sm" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-        <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-          <div className="container">
-            <div className="flex items-stretch">
-              {/* Logo Column - Desktop Only */}
-              <div className="hidden md:flex items-center justify-center px-3 xl:px-4 border-r border-gray-200 dark:border-gray-800 flex-shrink-0">
-                <Link to="/">
-                  <img
-                    src={delonLogo}
-                    alt="DELON TECHNOLOGIES"
-                    className="h-16 md:h-20 lg:h-24 w-auto min-w-[250px] md:min-w-[280px] lg:min-w-[320px] xl:min-w-[350px] object-contain"
-                  />
-                </Link>
+      <div
+        className="fixed top-0 z-50 w-full backdrop-blur-xl"
+        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
+      >
+        <div className="border-b border-black/8 bg-white dark:border-white/10 dark:bg-gray-950">
+          <div className="px-3 sm:px-4 lg:px-5">
+            <div className="flex min-h-[96px] items-center justify-between gap-4 sm:min-h-[108px] lg:min-h-[124px]">
+              <Link to="/" className="flex shrink-0 items-center py-4 sm:py-5">
+                <img
+                  src={delonLogo}
+                  alt="DELON TECHNOLOGIES"
+                  className="h-[4.5rem] w-auto rounded-xl bg-white object-contain sm:h-24 md:h-28 lg:h-32 dark:bg-gray-950"
+                />
+              </Link>
+
+              <div className="hidden lg:flex flex-1 items-center justify-center px-6">
+                <ul className="flex items-center gap-1 xl:gap-2">
+                  {navMenus.map((menu, index) => (
+                    <li key={index}>
+                      <NavLink
+                        to={menu.link}
+                        className={({ isActive }) =>
+                          `inline-flex items-center rounded-full px-3 py-2 text-sm font-medium tracking-[0.01em] transition-all duration-200 xl:px-4 ${
+                            isActive
+                              ? "bg-primary/8 text-primary dark:bg-primary/15"
+                              : "text-gray-700 hover:bg-black/[0.03] hover:text-primary dark:text-gray-200 dark:hover:bg-white/[0.05] dark:hover:text-primary"
+                          }`
+                        }
+                      >
+                        {menu.name}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Right Side Content */}
-              <div className="flex-1 flex flex-col">
-                {/* Top Contact Bar - Hidden on Mobile, Visible on Desktop */}
-                <div className="hidden md:block border-b border-gray-200 dark:border-gray-800">
-                  <div className="flex justify-center items-center py-2 px-4">
-                    <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-medium">
-                      <a
-                        href="mailto:agabaeldon@gmail.com"
-                        className="flex items-center gap-1.5 hover:text-primary dark:text-white dark:hover:text-primary transition-colors"
-                      >
-                        <FaEnvelope className="text-xs" />
-                        <span>agabaeldon@gmail.com</span>
-                      </a>
-                      <span className="opacity-40 dark:text-white">|</span>
-                      <a
-                        href="tel:+256765026870"
-                        className="flex items-center gap-1.5 hover:text-primary dark:text-white dark:hover:text-primary transition-colors"
-                      >
-                        <FaPhone className="text-xs" />
-                        <span>0765026870</span>
-                      </a>
-                      <span className="opacity-40 dark:text-white">|</span>
-                      <a
-                        href="tel:+256751501556"
-                        className="flex items-center gap-1.5 hover:text-primary dark:text-white dark:hover:text-primary transition-colors"
-                      >
-                        <FaPhone className="text-xs" />
-                        <span>0751501556</span>
-                      </a>
-                    </div>
-                  </div>
+              <div className="hidden shrink-0 items-center gap-3 md:flex">
+                <div className="hidden items-center gap-3 border-r border-black/8 pr-3 text-sm text-gray-600 dark:border-white/10 dark:text-gray-300 xl:flex">
+                  <a
+                    href="mailto:agabaeldon@gmail.com"
+                    className="flex items-center gap-2 transition-colors hover:text-primary"
+                  >
+                    <FaEnvelope className="text-[13px]" />
+                    <span>agabaeldon@gmail.com</span>
+                  </a>
+                  <span className="h-4 w-px bg-black/8 dark:bg-white/10" />
+                  <a
+                    href="tel:+256765026870"
+                    className="flex items-center gap-2 transition-colors hover:text-primary"
+                  >
+                    <FaPhone className="text-[13px]" />
+                    <span>0765026870</span>
+                  </a>
                 </div>
 
-                {/* Navigation */}
-                <nav className="flex-1">
-                  <div className="flex justify-between items-center h-full px-3 sm:px-4 py-2 md:py-0">
-                    {/* Mobile Logo */}
-                    <Link to="/" className="md:hidden flex items-center">
-                      <img
-                        src={delonLogo}
-                        alt="DELON TECHNOLOGIES"
-                        className="h-10 sm:h-12 w-auto min-w-[180px] sm:min-w-[220px] object-contain"
-                      />
-                    </Link>
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/80 text-gray-700 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:bg-white/[0.08]"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? (
+                    <BiSolidSun className="text-xl text-yellow-400" />
+                  ) : (
+                    <BiSolidMoon className="text-xl" />
+                  )}
+                </button>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden sm:flex items-center ml-auto gap-2 mr-4 md:mr-8 lg:mr-12 xl:mr-16">
-                      <div className="overflow-x-auto">
-                        <ul className="flex items-center gap-2 md:gap-3 lg:gap-4 flex-nowrap">
-                          {navMenus.map((menu, index) => (
-                            <li key={index} className="flex-shrink-0">
-                              <NavLink
-                                to={menu.link}
-                                className={({ isActive }) =>
-                                  `text-xs md:text-sm font-medium py-4 px-1 md:px-1.5 inline-block transition-colors dark:text-white whitespace-nowrap
-                                  ${isActive ? "text-primary" : "hover:text-primary dark:hover:text-primary"}`
-                                }
-                              >
-                                {menu.name}
-                              </NavLink>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      {/* Theme Toggle - Desktop Version (Right End) */}
-                      <button
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors flex-shrink-0"
-                        aria-label="Toggle theme"
-                      >
-                        {theme === "dark" ? (
-                          <BiSolidSun className="text-xl text-yellow-400 cursor-pointer" />
-                        ) : (
-                          <BiSolidMoon className="text-xl text-gray-700 dark:text-gray-300 cursor-pointer" />
-                        )}
-                      </button>
-                    </div>
+                <button
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/80 text-gray-700 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:hover:bg-white/[0.08] lg:hidden"
+                  onClick={toggleMenu}
+                  aria-label="Toggle menu"
+                >
+                  <FiMenu className="text-[22px]" />
+                </button>
+              </div>
 
-                    {/* Mobile Menu Button and Theme Toggle */}
-                    <div className="flex items-center gap-2 sm:hidden">
-                      {/* Theme Toggle */}
-                      <button
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                        aria-label="Toggle theme"
-                      >
-                        {theme === "dark" ? (
-                          <BiSolidSun className="text-xl text-white" />
-                        ) : (
-                          <BiSolidMoon className="text-xl" />
-                        )}
-                      </button>
+              <div className="flex shrink-0 items-center gap-2 md:hidden">
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-black/8 bg-white/80 text-gray-700 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200 dark:hover:bg-white/[0.08]"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? (
+                    <BiSolidSun className="text-xl text-yellow-400" />
+                  ) : (
+                    <BiSolidMoon className="text-xl" />
+                  )}
+                </button>
 
-                      {/* Mobile Menu Button */}
-                      <button
-                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                        onClick={toggleMenu}
-                        aria-label="Toggle menu"
-                      >
-                        <FiMenu className="text-2xl dark:text-white" />
-                      </button>
-                    </div>
-                  </div>
-                </nav>
+                <button
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-black/8 bg-white/80 text-gray-700 transition-colors hover:bg-black/[0.03] dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:hover:bg-white/[0.08]"
+                  onClick={toggleMenu}
+                  aria-label="Toggle menu"
+                >
+                  <FiMenu className="text-[22px]" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] sm:hidden transition-opacity duration-300 ${
-          showMenu ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          showMenu ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={closeMenu}
       />
 
-      {/* Mobile Menu Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white dark:bg-gray-900 shadow-2xl z-[70] sm:hidden transform transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 z-[70] h-full w-[85%] max-w-sm transform bg-white shadow-2xl transition-transform duration-300 ease-out dark:bg-gray-900 lg:hidden ${
           showMenu ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full">
-          {/* Sidebar Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 bg-gradient-to-r from-primary/5 to-transparent">
-            <div className="flex items-center gap-3">
-              <img
-                src={delonLogo}
-                alt="DELON TECHNOLOGIES"
-                className="h-8 w-auto min-w-[150px] object-contain"
-              />
-              <h2 className="text-lg font-bold text-primary dark:text-white">Menu</h2>
-            </div>
+        <div className="flex h-full flex-col">
+          <div className="flex items-center justify-between border-b border-black/8 bg-gradient-to-r from-primary/5 via-transparent to-transparent px-4 py-5 dark:border-white/10">
+            <img
+              src={delonLogo}
+              alt="DELON TECHNOLOGIES"
+              className="h-14 w-auto rounded-lg bg-white object-contain dark:bg-gray-900"
+            />
             <button
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/8 transition-colors hover:bg-gray-100 dark:border-white/10 dark:hover:bg-gray-800"
               onClick={closeMenu}
               aria-label="Close menu"
             >
@@ -219,12 +197,11 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Contact Info - Mobile Only */}
-          <div className="px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
+          <div className="border-b border-black/8 bg-gray-50/80 px-4 py-4 dark:border-white/10 dark:bg-gray-800/40">
             <div className="flex flex-col gap-2 text-xs">
               <a
                 href="mailto:agabaeldon@gmail.com"
-                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-gray-700 transition-colors hover:text-primary dark:text-gray-300"
               >
                 <FaEnvelope className="text-sm" />
                 <span className="truncate">agabaeldon@gmail.com</span>
@@ -232,14 +209,14 @@ const Navbar = () => {
               <div className="flex items-center gap-4">
                 <a
                   href="tel:+256765026870"
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-gray-700 transition-colors hover:text-primary dark:text-gray-300"
                 >
                   <FaPhone className="text-sm" />
                   <span>0765026870</span>
                 </a>
                 <a
                   href="tel:+256751501556"
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-gray-700 transition-colors hover:text-primary dark:text-gray-300"
                 >
                   <FaPhone className="text-sm" />
                   <span>0751501556</span>
@@ -248,18 +225,17 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Sidebar Menu Items */}
-          <ul className="flex flex-col flex-1 py-2 overflow-y-auto">
+          <ul className="flex flex-1 flex-col overflow-y-auto py-3">
             {navMenus.map((navMenu, index) => {
               const Icon = navMenu.icon;
               return (
                 <li key={index}>
                   <NavLink
                     className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3.5 mx-2 rounded-lg text-base font-medium transition-all duration-200 ${
+                      `mx-3 flex items-center gap-3 rounded-2xl px-4 py-3.5 text-base font-medium transition-all duration-200 ${
                         isActive
-                          ? "text-primary bg-primary/10 dark:bg-primary/20 border-l-4 border-primary"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white"
+                          ? "bg-primary/10 text-primary dark:bg-primary/20"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-primary dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
                       }`
                     }
                     to={navMenu.link}
@@ -273,17 +249,15 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Sidebar Footer */}
-          <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
-            <p className="text-xs text-center text-gray-500 dark:text-gray-400">
-              © {new Date().getFullYear()} Delon Technologies
+          <div className="border-t border-black/8 bg-gray-50/80 p-4 dark:border-white/10 dark:bg-gray-800/40">
+            <p className="text-center text-xs text-gray-500 dark:text-gray-400">
+              Copyright {new Date().getFullYear()} Delon Technologies
             </p>
           </div>
         </div>
       </div>
 
-      {/* Spacer for fixed header */}
-      <div className="h-[70px] md:h-[110px]" />
+      <div className="h-[96px] sm:h-[108px] lg:h-[124px]" />
     </>
   );
 };
