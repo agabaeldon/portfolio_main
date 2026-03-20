@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaPaperPlane, FaCheckCircle } from "react-icons/fa";
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
 const SubscribeForm = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,16 +15,43 @@ const SubscribeForm = () => {
       return;
     }
 
+    if (!FORMSPREE_ENDPOINT) {
+      setErrorMessage("Subscription form is not connected yet.");
+      return;
+    }
+
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          source: "Stay Updated form",
+          _subject: `New newsletter signup from ${email}`,
+          message: `Please add ${email} to updates from the portfolio Stay Updated form.`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to subscribe.");
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
       setEmail("");
       setTimeout(() => {
         setIsSubmitted(false);
       }, 3000);
-    }, 1000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setErrorMessage("Subscription failed. Please try again.");
+    }
   };
 
   return (
@@ -86,6 +116,12 @@ const SubscribeForm = () => {
                     <FaCheckCircle className="text-green-500" />
                     Thank you! You'll receive updates soon.
                   </p>
+                </div>
+              )}
+
+              {errorMessage && (
+                <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+                  <p className="text-xs text-red-700 dark:text-red-300">{errorMessage}</p>
                 </div>
               )}
 

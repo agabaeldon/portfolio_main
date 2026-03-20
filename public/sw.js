@@ -29,8 +29,8 @@ self.addEventListener('fetch', (event) => {
         if (response) {
           return response;
         }
-        return fetch(event.request).then(
-          (response) => {
+        return fetch(event.request)
+          .then((response) => {
             // Check if valid response
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
@@ -42,8 +42,13 @@ self.addEventListener('fetch', (event) => {
                 cache.put(event.request, responseToCache);
               });
             return response;
-          }
-        );
+          })
+          .catch(() => {
+            return new Response('Offline', {
+              status: 503,
+              statusText: 'Offline',
+            });
+          });
       })
   );
 });
